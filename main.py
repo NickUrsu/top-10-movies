@@ -5,14 +5,13 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired
 import requests
-import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", "sqlite:////my-favorite-movies.db")
+app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///my-favorite-movies.db'
 Bootstrap(app)
 db = SQLAlchemy(app)
-api_key = os.environ.get("API_KEY")
+api_key = '8a254e637af5d60d835566922a450157'
 
 class EditForm(FlaskForm):
     rating = StringField('Your rating out of 10, eg.:7.4', validators=[DataRequired()])
